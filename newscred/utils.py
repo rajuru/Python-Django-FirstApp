@@ -1,4 +1,4 @@
-import urllib2, json, urllib
+import json, urllib
 class Fetch:
   base_url = 'http://api.newscred.com'
   access_key = 'c4bcc3f7c9bf9ec159f51da0a86ca658'
