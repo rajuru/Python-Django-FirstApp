@@ -1,0 +1,17 @@
+<h1>Search Topics</h1>
+
+<form action="/">
+  <label>
+    Enter Keyword: <input type="text" name="q" placeholder="Enter topic and hit enter!" />
+  </label>
+  <button type="submit">Go</button>
+</form>
+{% if topics %}
+  <ul>
+    {% for topic in topics %}
+      <li><a href="/topics/{{ topic.guid }}">{{ topic.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Sorry, no topic found</p>
+{% endif %}

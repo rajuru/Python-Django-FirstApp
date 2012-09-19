@@ -1,0 +1,60 @@
+<style type="text/css">
+  section{
+    width: 830px;
+  }
+  article{
+    width: 500px;
+    float: left;
+  }
+  #rightColumn{
+    width: 300px;
+    float: left;
+  }
+</style>
+<form action="/topics">
+  <label>
+    Enter Keyword: <input type="text" name="q" placeholder="Enter topic and hit enter!" />
+  </label>
+  <button type="submit">Go</button>
+</form>
+
+<h1><a href="{{ topic.link }}">{{ topic.name }}</a></h1>
+
+<section>
+  <article id="leftColumn">
+    <div class="description">
+      <img src="{{ topic.image_url }}" style="float: left; padding: 10px;"/>{{ topic.description }}
+    </div>
+
+    <aside>
+      <h2>Related Topics</h2>
+      {% if related_topics %}
+        <ul>
+          {% for related_topic in related_topics %}
+            <li><a href="/topics/{{ related_topic.guid }}">{{ related_topic.name }}</a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Sorry, no related topics found</p>
+      {% endif %}
+    </aside>
+
+  </article>
+
+  <div id="rightColumn">
+    {% if images %}
+      <ul>
+        {% for image in images %}
+          <a href="{{ image.urls.large }}"><img src="{{ image.urls.small}}"/></a>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Sorry, no image found</p>
+    {% endif %}
+  </div>
+</section>
+
+
+
+
+
