@@ -1,10 +1,9 @@
 from newscred.models import Topic, Fetch
 from django.shortcuts import render_to_response, get_object_or_404
-import urllib2
-import json
-from django.views.decorators.cache import  cache_page
+from django.views.decorators.cache import cache_page
 
-
+from django.contrib.auth.forms import PasswordChangeForm
+from bootstrap.forms import BootstrapMixin, Fieldset
 
 def index(request):
   topics = []
@@ -13,10 +12,9 @@ def index(request):
   if query:
     fetcher = Fetch()
     topics = fetcher.get_topics(query)
-
   return render_to_response('newscred/index.html', {'q': query, 'topics': topics})
 
-@cache_page(60 * 10)
+#@cache_page(60 * 10)
 def detail(request, topic_guid):
   fetcher = Fetch()
   topic = fetcher.get_topic(topic_guid)

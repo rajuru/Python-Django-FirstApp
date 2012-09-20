@@ -1,3 +1,6 @@
+{% extends 'layout.html' %}
+{% block title %} {{ topic.name }} {% endblock %}
+{% block content %}
 <style type="text/css">
   section{
     width: 830px;
@@ -11,19 +14,16 @@
     float: left;
   }
 </style>
-<form action="/topics">
-  <label>
-    Enter Keyword: <input type="text" name="q" placeholder="Enter topic and hit enter!" />
-  </label>
-  <button type="submit">Go</button>
-</form>
 
 <h1><a href="{{ topic.link }}">{{ topic.name }}</a></h1>
 
 <section>
   <article id="leftColumn">
     <div class="description">
-      <img src="{{ topic.image_url }}" style="float: left; padding: 10px;"/>{{ topic.description }}
+      <img src="{{ topic.image_url }}" style="float: left; padding: 10px;"/>
+      {{ topic.description|slice:":100" }}
+    </div>
+    <div class="info">
     </div>
 
     <aside>
@@ -53,7 +53,7 @@
     {% endif %}
   </div>
 </section>
-
+{% endblock %}
 
 
 

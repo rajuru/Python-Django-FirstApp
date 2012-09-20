@@ -21,11 +21,11 @@ class Fetch:
     return data['image_set']
 
   def execute(self, path, query_strings=''):
+
     if query_strings:
       url = "%s%s?%s&access_key=%s&format=json" % (self.base_url, path, query_strings, self.access_key)
     else:
       url = "%s%s?access_key=%s&format=json" % (self.base_url, path, self.access_key)
-
     response = urllib.urlopen(url)
     return json.loads(response.read())
 

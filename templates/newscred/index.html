@@ -1,17 +1,18 @@
-<h1>Search Topics</h1>
+{% extends 'layout.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+  {% if topics %}
+    <ul>
+      {% for topic in topics %}
+        <li><a href="/topics/{{ topic.guid }}">{{ topic.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-block">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <h4>Warning!</h4>
+      Best check yo self, you're not...
+    </div>
 
-<form action="/topics">
-  <label>
-    Enter Keyword: <input type="text" name="q" placeholder="Enter topic and hit enter!" />
-  </label>
-  <button type="submit">Go</button>
-</form>
-{% if topics %}
-  <ul>
-    {% for topic in topics %}
-      <li><a href="/topics/{{ topic.guid }}">{{ topic.name }}</a></li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>Sorry, no topic found</p>
-{% endif %}
+  {% endif %}
+{% endblock %}
