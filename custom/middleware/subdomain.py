@@ -9,3 +9,7 @@ class SubDomain:
     keyword = url_parts.subdomain.lstrip('www.').replace('-',' ')
     if keyword:
       return HttpResponseRedirect('http://127.0.0.1:8000/topics/?q=%s' %  keyword)
+    #if query:
+    #  fetcher = Fetch()
+    #  topics = fetcher.get_topics(query)
+    #  return render_to_response('newscred/index.html', {'q': query, 'topics': topics})

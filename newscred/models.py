@@ -8,7 +8,7 @@ class Topic(models.Model):
   description = models.TextField()
   image_url = models.TextField(max_length=255)
   link = models.TextField(max_length=255)
-  guid = models.TextField(max_length=255, unique=True)
+  guid = models.TextField(max_length=255, primary_key=True)
 
   def __unicode__(self):
     return self.name

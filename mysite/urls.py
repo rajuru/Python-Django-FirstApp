@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 admin.autodiscover()
 
@@ -11,4 +12,7 @@ urlpatterns = patterns('',
   url(r'^admin/', include(admin.site.urls)),
   url(r'^topics/$', 'newscred.views.index'),
   url(r'^topics/(?P<topic_guid>\w+)/$', 'newscred.views.detail'),
+  url(r'^topics/(?P<topic_guid>\w+)/update/$', 'newscred.views.update'),
 )
+
+urlpatterns += staticfiles_urlpatterns()
