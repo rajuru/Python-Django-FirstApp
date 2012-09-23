@@ -11,7 +11,7 @@
       {% for topic in topics %}
         <li>
           {% if topic.augmented %}
-              <a class='augmented' href="/topics/{{ topic.guid }}">{{ topic.name }}</a></li>
+            <a class='augmented' href="/topics/{{ topic.guid }}">{{ topic.name }}</a>
           {% else %}
             <a href="/topics/{{ topic.guid }}">{{ topic.name }}</a>
           {% endif %}
