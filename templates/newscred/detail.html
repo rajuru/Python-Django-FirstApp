@@ -1,4 +1,6 @@
 {% extends 'layout.html' %}
+{% load newscred_extras %}
+
 {% block title %} {{ topic.name }} {% endblock %}
 {% block content %}
   <style type="text/css">
@@ -15,7 +17,8 @@
       width: 300px;
       float: left;
     }
-    .hidden{
+
+    .hidden {
       display: none;
     }
   </style>
@@ -26,7 +29,8 @@
       {{ topic.name }}
 
     </h1>
-      <input type="text" name="name" value="{{ topic.name }}" class="topic_name input-large hidden" />
+    <input type="text" name="name" value="{{ topic.name }}" class="topic_name input-large hidden"/>
+    <h4>{{ topic.link|shorten }}</h4>
 
     <section>
       <article id="leftColumn">
