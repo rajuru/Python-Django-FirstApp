@@ -2,6 +2,6 @@ from django.template import RequestContext
 
 def custom_context(request):
   return {
-    'author': 'The HungryCoder',
-    'author_url': 'http://thehungrycoder.com'
+    'AUTHOR': 'The HungryCoder',
+    'AUTHOR_URL': 'http://thehungrycoder.com'
   }
