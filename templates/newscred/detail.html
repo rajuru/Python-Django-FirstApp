@@ -46,7 +46,7 @@
         </div>
         {% topic_info topic %}
 
-        <aside>
+        <aside style="clear:both">
           <h2>Related Topics</h2>
           {% if related_topics %}
             <ul>
@@ -74,6 +74,8 @@
       </div>
     </section>
   </form>
+  <p style="clear:both">This app is developed by: <a href="{{ author_url }}">{{ author }}</a></p>
+
 {% endblock %}
 
 

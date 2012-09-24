@@ -33,8 +33,8 @@ def index(request):
       for index, topic in enumerate(topics):
         topics[index] = augment_topic(topic)
 
-
-  return render_to_response('newscred/index.html', {'q': query, 'topics': topics})
+  context_instance=RequestContext(request)
+  return render_to_response('newscred/index.html', {'q': query, 'topics': topics}, context_instance)
 
 #@cache_page(60 * 10)
 def detail(request, topic_guid):
@@ -42,7 +42,9 @@ def detail(request, topic_guid):
   topic = fetcher.get_topic(topic_guid)
   images = fetcher.get_images(topic_guid)
   related_topics = fetcher.get_related_topic(topic_guid)
-  return render_to_response('newscred/detail.html', {'topic': topic, 'images': images, 'related_topics': related_topics}, context_instance=RequestContext(request))
+  context_instance=RequestContext(request)
+
+  return render_to_response('newscred/detail.html', {'topic': topic, 'images': images, 'related_topics': related_topics}, context_instance)
 
 def update(request, topic_guid):
   fetcher = Fetch()

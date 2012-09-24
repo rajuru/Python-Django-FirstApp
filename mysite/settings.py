@@ -1,4 +1,5 @@
 # Django settings for mysite project.
+from django.conf import global_settings
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -163,3 +164,7 @@ CACHES = {
     'LOCATION': '/tmp/django_cache',
   }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+  'newscred.request_context.custom_context',
+)
