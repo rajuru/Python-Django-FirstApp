@@ -6,7 +6,6 @@
 {% extends 'layout.html' %}
 {% block title %} Home {% endblock %}
 {% block content %}
-  {% current_time timezone.now() "%Y-%m-%d %I:%M %p" %}
   {% if topics %}
     <ul>
       {% for topic in topics %}

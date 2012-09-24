@@ -21,6 +21,10 @@
     .hidden {
       display: none;
     }
+    .info{
+      font-weight: bold;
+      color: grey;
+    }
   </style>
 
   <form id="topic_form" action="" method="post" data-topic-guid="{{ topic.guid }}">
@@ -40,8 +44,7 @@
 
           <textarea name="description" cols="50" rows="8" class="topic_descriptions hidden"></textarea>
         </div>
-        <div class="info">
-        </div>
+        {% topic_info topic %}
 
         <aside>
           <h2>Related Topics</h2>
